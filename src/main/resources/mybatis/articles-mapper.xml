@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="me.kaohongshu.tuicool.dao.IArticleDao">
+    <select id="getArticles" resultType="me.kaohongshu.tuicool.entity.Article" parameterType="int">
+        select * from tuicool order by created_at desc limit #{num},20
+    </select>
+    <delete id="deleteArticle" parameterType="int">
+        delete from tuicool where article_id = #{id}
+    </delete>
+</mapper>
