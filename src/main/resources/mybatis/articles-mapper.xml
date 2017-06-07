@@ -3,10 +3,29 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="me.kaohongshu.tuicool.dao.IArticleDao">
-    <select id="getArticles" resultType="me.kaohongshu.tuicool.entity.Article" parameterType="int">
+    <select id="getArticles" resultType="me.kaohongshu.tuicool.entity.bean.Article" parameterType="int">
         select * from tuicool order by created_at desc limit #{num},20
     </select>
+
     <delete id="deleteArticle" parameterType="int">
         delete from tuicool where article_id = #{id}
     </delete>
+
+    <select id="getAllTags" resultType="me.kaohongshu.tuicool.entity.bean.Tag">
+        select * from tag order by article_count desc
+        <if test="_parameter == null or _parameter=='' or _parameter==0"> limit 100</if>
+    </select>
+
+    <select id="getAllCategories" resultType="me.kaohongshu.tuicool.entity.bean.Category">
+        select * from category
+    </select>
+    <select id="getAllWebsites" resultType="me.kaohongshu.tuicool.entity.bean.Website" parameterType="int">
+        select * from website order by article_count desc limit #{offset},20
+    </select>
+
+    <select id="getArticlesByCategory" resultType="me.kaohongshu.tuicool.entity.bean.Article">
+        select * from tuicool where category=#{0} order by created_at desc limit #{1},20
+    </select>
+
+
 </mapper>

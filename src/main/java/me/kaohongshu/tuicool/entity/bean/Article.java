@@ -1,4 +1,6 @@
-package me.kaohongshu.tuicool.entity;
+package me.kaohongshu.tuicool.entity.bean;
+
+import me.kaohongshu.tuicool.entity.Bean;
 
 import javax.xml.bind.annotation.XmlRootElement;
 
@@ -6,7 +8,7 @@ import javax.xml.bind.annotation.XmlRootElement;
  * Created by Administrator on 2017/5/12 0012.
  */
 @XmlRootElement(name="article")
-public class Article extends Bean{
+public class Article extends Bean {
     private int article_id;
     private String title;
     private String created_at;
@@ -17,6 +19,8 @@ public class Article extends Bean{
     private String body;
     private String web_name;
     private String origin_url;
+    private String des;
+
 
     public Article(){}
 
@@ -98,5 +102,13 @@ public class Article extends Bean{
 
     public void setOrigin_url(String origin_url) {
         this.origin_url = origin_url;
+    }
+
+    public String getDes() {
+        return des;
+    }
+
+    public void setDes(String des) {
+        this.des = des;
     }
 }

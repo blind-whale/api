@@ -8,6 +8,6 @@
     </settings>
 
     <typeAliases>
-        <typeAlias type="me.kaohongshu.tuicool.entity.Article" alias="Article"/>
+        <typeAlias type="me.kaohongshu.tuicool.entity.bean.Article" alias="Article"/>
     </typeAliases>
 </configuration>

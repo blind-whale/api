@@ -1,7 +1,10 @@
 package me.kaohongshu.tuicool.service;
 
 import me.kaohongshu.tuicool.dao.IArticleDao;
-import me.kaohongshu.tuicool.entity.Article;
+import me.kaohongshu.tuicool.entity.bean.Article;
+import me.kaohongshu.tuicool.entity.bean.Category;
+import me.kaohongshu.tuicool.entity.bean.Tag;
+import me.kaohongshu.tuicool.entity.bean.Website;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -28,4 +31,25 @@ public class ArticleService {
         }
         return articles;
     }
+
+    public List<Tag> getAllTags(int offset){
+        List<Tag> tags=articleDao.getAllTags(offset);
+        return tags;
+    }
+
+    public List<Category> getAllCategories(){
+        List<Category> list=articleDao.getAllCategories();
+        return list;
+    }
+
+    public List<Website> getAllWebsites(int offset){
+        List<Website> list=articleDao.getAllWebsites(offset);
+        return list;
+    }
+
+    public List<Article> getArticlesByCategory(int offset,String name){
+        List<Article> articles=articleDao.getArticlesByCategory(name,offset);
+        return articles;
+    }
+
 }
