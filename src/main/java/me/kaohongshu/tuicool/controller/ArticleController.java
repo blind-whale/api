@@ -40,8 +40,8 @@ public class ArticleController {
     }
 
     @RequestMapping("/getArticlesByCategory")
-    public Result getArticlesByCategory(@RequestParam(name = "page", defaultValue = "1", required = true) int page,
-                                        @RequestParam(name = "category", defaultValue = "科技", required = true) String category) {
+    public Result getArticlesByCategory(@RequestParam(name = "page", defaultValue = "1") int page,
+                                        @RequestParam(name = "category", defaultValue = "科技") String category) {
         Result result = new Result();
         if (page <= 0) page = 1;
         List<Article> list = articleService.getArticlesByCategory((page-1) * 20, category);
@@ -57,7 +57,7 @@ public class ArticleController {
     }
 
     @RequestMapping("/getTags")
-    public Result getAllTags(@RequestParam(defaultValue = "0",required = true,name = "isAll") int isAll){
+    public Result getAllTags(@RequestParam(defaultValue = "0",name = "isAll") int isAll){
         Result result=new Result();
         List<Tag> list=articleService.getAllTags(isAll);
         if (list == null) {
